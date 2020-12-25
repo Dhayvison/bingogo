@@ -1,25 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MenuSorteios from './components/menu-sorteios/MenuSorteios';
+import DisplayNumero from './components/display-numero/DisplayNumero';
+import { Box } from 'bumbag';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box height="100vh">
+      <MenuSorteios />
+      <DisplayNumero />
+    </Box>
   );
 }
 
