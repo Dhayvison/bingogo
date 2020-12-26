@@ -20,6 +20,7 @@ export const DisplayTituloSorteioCorrente = applyTheme(Box, {
     base: {
       opacity: '0.7',
       width: 'fit-content',
+      maxWidth: '50%',
       backgroundColor: 'danger',
       borderRadius: '0 0 20px 0',
       padding: 'major-2',
