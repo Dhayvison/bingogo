@@ -1,7 +1,7 @@
 function getNumeros(length) {
   const numeros = [];
-  for (let i = 0; i < length; i++) {
-    numeros.push(String(i));
+  for (let i = 0; i < length; ) {
+    numeros.push(String(++i));
   }
   return numeros;
 }
@@ -15,4 +15,8 @@ function capitalize(s) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-export { getNumeros, getRandomInRange, capitalize };
+function compareLikeNumber(numberA, numberB) {
+  return Number(numberA) - Number(numberB);
+}
+
+export { getNumeros, getRandomInRange, capitalize, compareLikeNumber };

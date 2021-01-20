@@ -19,10 +19,10 @@ export const sorteioCorrenteReducer = (
       break;
     case SORTEIO_SORTEAR_UM_NUMERO:
       const numeroSorteado = stateSorteioCorrente.numeros[action.payload.indexSorteado];
-      const numerosChamados = [numeroSorteado, ...stateSorteioCorrente.numerosChamados];
-      stateSorteioCorrente.numeros.splice(action.payload.indexSorteado, 1); // remove o número sorteado
-      const numeros = [...stateSorteioCorrente.numeros];
-      newState = { ...stateSorteioCorrente, numeros, numerosChamados };
+      stateSorteioCorrente.numerosChamados.unshift(numeroSorteado);
+      stateSorteioCorrente.numeros.splice(action.payload.indexSorteado, 1); // remove o número sorteado // está removendo da lista de sorteios tbm
+
+      newState = { ...stateSorteioCorrente };
       break;
     default:
       newState = stateSorteioCorrente;
