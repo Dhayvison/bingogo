@@ -1,7 +1,11 @@
 import React from 'react';
-import { Badge, Columns, Show, Tag } from 'bumbag';
+import { Badge, Columns, Flex, Show, Tag } from 'bumbag';
 import { connect } from 'react-redux';
-import { NumeroChamadoDisplay, NumerosChamadosGrid } from './DisplayNumero.style';
+import {
+  NumeroChamadoDisplay,
+  NumerosChamadosGrid,
+  NumeroChamadoItemList,
+} from './DisplayNumero.style';
 import { sortearUmNumero } from '../../redux/actions/index';
 import { getRandomInRange, compareLikeNumber } from '../../utils/utils';
 
@@ -11,8 +15,8 @@ function DisplayNumero(store: any) {
   const ultimoChamado = sorteioCorrenteState.numerosChamados[0];
 
   return (
-    <Columns isGapless marginTop="major-4">
-      <Columns.Column alignX="center" padding="major-4">
+    <Columns isGapless marginTop="major-5" height="80vh">
+      <Columns.Column alignX="center" alignY="center" padding="major-4">
         <NumeroChamadoDisplay
           palette="warning"
           variant="outlined"
@@ -37,6 +41,7 @@ function DisplayNumero(store: any) {
               .map((numero: string) => {
                 return (
                   <Tag
+                    altitude="400"
                     key={numero}
                     palette={ultimoChamado === numero ? 'warning' : 'default'}
                     size="large"
@@ -48,6 +53,19 @@ function DisplayNumero(store: any) {
           </NumerosChamadosGrid>
         </Columns.Column>
       </Show>
+      <Columns.Column
+        spread={12}
+        padding="major-4"
+        backgroundColor="danger"
+        height="min-content"
+        alignSelf="flex-end"
+      >
+        <Flex overflowX="scroll" borderRadius="6">
+          {sorteioCorrenteState.numerosChamados.map((numero: string) => {
+            return <NumeroChamadoItemList key={numero}>{numero}</NumeroChamadoItemList>;
+          })}
+        </Flex>
+      </Columns.Column>
     </Columns>
   );
 }

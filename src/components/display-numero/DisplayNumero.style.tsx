@@ -24,3 +24,22 @@ export const NumerosChamadosGrid = applyTheme(Box, {
     },
   },
 });
+
+export const NumeroChamadoItemList = applyTheme(Box, {
+  styles: {
+    base: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexWrap: 'nowrap',
+      borderRadius: '100%',
+      minWidth: '5rem',
+      width: '5rem',
+      height: '5rem',
+      backgroundColor: 'warningTint',
+      color: 'default',
+      fontSize: '2rem',
+      marginRight: '1rem',
+    },
+  },
+});
