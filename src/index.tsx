@@ -10,7 +10,7 @@ import './global.css';
 ReactDOM.render(
   <React.StrictMode>
     <ReduxProvider store={Store}>
-      <BumbagProvider>
+      <BumbagProvider colorMode="dark">
         <App />
       </BumbagProvider>
     </ReduxProvider>

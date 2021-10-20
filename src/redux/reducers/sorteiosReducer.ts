@@ -9,7 +9,6 @@ const initialState: Sorteio[] = storageSorteios ?? [];
 type ActionSalvar = { type: number; payload: { sorteio: Sorteio } };
 
 export const sorteiosReducer = (stateSorteios = initialState, action: ActionSalvar) => {
-  console.log(stateSorteios, action);
   let newState: Sorteio[];
   switch (action.type) {
     case SORTEIO_SALVAR:

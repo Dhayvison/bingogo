@@ -1,15 +1,11 @@
-import { Drawer, List, applyTheme, Box } from 'bumbag';
+import { Drawer, List, applyTheme, Box, Text } from 'bumbag';
 
 export const DrawerDisclosure = applyTheme(Drawer.Disclosure, {
   styles: {
     base: {
-      textAlign: 'left',
-      width: '61.8%',
-      paddingY: 'major-2',
-      paddingX: 'major-4',
+      padding: 'major-2',
       backgroundColor: 'danger',
       color: 'primaryTint',
-      borderRadius: '0 0 20px 0',
       cursor: 'pointer',
     },
   },
@@ -18,13 +14,10 @@ export const DrawerDisclosure = applyTheme(Drawer.Disclosure, {
 export const DisplayTituloSorteioCorrente = applyTheme(Box, {
   styles: {
     base: {
-      opacity: '0.7',
       width: 'fit-content',
-      maxWidth: '50%',
-      backgroundColor: 'danger',
-      borderRadius: '0 0 20px 0',
+      backgroundColor: 'danger800',
       padding: 'major-2',
-      color: 'primaryTint',
+      fontWeight: 'bolder',
     },
   },
 });
@@ -40,7 +33,6 @@ export const DrawerStyled = applyTheme(Drawer, {
       flexDirection: 'column',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
-      height: '100%',
     },
   },
 });
@@ -64,6 +56,8 @@ export const SorteioListItem = applyTheme(Drawer.Disclosure, {
       borderRadius: '5px',
       margin: '15px 0',
       cursor: 'pointer',
+      color: 'text',
+      fontWeight: 'bolder',
     },
   },
 });

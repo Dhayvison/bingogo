@@ -5,3 +5,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background-color: var(--bb-palette-default);
+}

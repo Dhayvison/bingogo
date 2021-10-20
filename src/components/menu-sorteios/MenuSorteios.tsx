@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Box, Button, Drawer, Group, Heading, Input, useColorMode, Switch, Text } from 'bumbag';
+import { Box, Button, Drawer, Group, Heading, Input, Text } from 'bumbag';
 import { salvarSorteio, setSorteioCorrente } from '../../redux/actions';
 import Sorteio from '../../models/Sorteio';
 import {
@@ -12,7 +12,6 @@ import {
 } from './MenuSorteios.style';
 
 function MenuSorteios(store: any) {
-  const { colorMode, setColorMode } = useColorMode();
   const { sorteiosState, sorteioCorrenteState, dispatch } = store;
   const [inputSorteio, setInputSorteio] = React.useState('');
 
@@ -22,30 +21,14 @@ function MenuSorteios(store: any) {
   }
 
   return (
-    <Drawer.State animated baseId="menuSorteios">
+    <Drawer.State animated>
       <DrawerDisclosure>
         <Heading use="h2">☰ BINGO go!</Heading>
       </DrawerDisclosure>
 
-      <DisplayTituloSorteioCorrente>
-        <Heading use="h4">{sorteioCorrenteState.titulo}</Heading>
-      </DisplayTituloSorteioCorrente>
+      <DisplayTituloSorteioCorrente>{sorteioCorrenteState.titulo}</DisplayTituloSorteioCorrente>
 
       <DrawerStyled fade slide>
-        <Switch
-          state="primary"
-          defaultChecked={colorMode === 'dark'}
-          label={colorMode === 'default' ? '☀️' : '🌙'}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            const isChecked = event.target.checked;
-            if (isChecked) {
-              setColorMode('dark');
-            } else {
-              setColorMode('default');
-            }
-          }}
-        />
-
         <Heading>Sorteios</Heading>
 
         <SorteioList>
@@ -57,9 +40,7 @@ function MenuSorteios(store: any) {
                   dispatch(setSorteioCorrente(item));
                 }}
               >
-                <Heading color={colorMode === 'dark' ? 'primaryTint' : 'black'} use="h5">
-                  {item.titulo}
-                </Heading>
+                {item.titulo}
               </SorteioListItem>
             );
           })}
