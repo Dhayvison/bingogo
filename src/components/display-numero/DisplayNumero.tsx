@@ -15,58 +15,59 @@ function DisplayNumero(store: any) {
   const ultimoChamado = sorteioCorrenteState.numerosChamados[0];
 
   return (
-    <Columns isGapless marginTop="major-5" height="80vh">
-      <Columns.Column alignX="center" alignY="center" padding="major-4">
-        <NumeroChamadoDisplay
-          palette="warning"
-          variant="outlined"
-          onClick={() => {
-            if (numerosRestantes) {
-              const indexSorteado = getRandomInRange(numerosRestantes);
-              dispatch(sortearUmNumero(indexSorteado));
-            }
-          }}
-        >
-          {ultimoChamado ?? 'go!'}
-          <Badge isAttached palette={numerosRestantes ? 'warning' : 'danger'} size="large">
-            {numerosRestantes ? numerosRestantes : '0'}
-          </Badge>
-        </NumeroChamadoDisplay>
-      </Columns.Column>
-      <Show above="tablet">
-        <Columns.Column>
-          <NumerosChamadosGrid wrapFlow="wrap">
-            {[...sorteioCorrenteState.numerosChamados]
-              .sort(compareLikeNumber)
-              .map((numero: string) => {
-                return (
-                  <Tag
-                    altitude="400"
-                    key={numero}
-                    palette={ultimoChamado === numero ? 'warning' : 'default'}
-                    size="large"
-                  >
-                    {numero}
-                  </Tag>
-                );
-              })}
-          </NumerosChamadosGrid>
+    <>
+      <Columns isGapless height="80vh">
+        <Columns.Column alignX="center" alignY="center" marginX="auto">
+          <NumeroChamadoDisplay
+            palette="warning"
+            variant="outlined"
+            onClick={() => {
+              if (numerosRestantes) {
+                const indexSorteado = getRandomInRange(numerosRestantes);
+                dispatch(sortearUmNumero(indexSorteado));
+              }
+            }}
+          >
+            {ultimoChamado ?? 'go!'}
+            <Badge isAttached palette={numerosRestantes ? 'warning' : 'danger'} size="large">
+              {numerosRestantes ? numerosRestantes : '0'}
+            </Badge>
+          </NumeroChamadoDisplay>
         </Columns.Column>
-      </Show>
-      <Columns.Column
-        spread={12}
-        padding="major-4"
-        backgroundColor="danger"
-        height="min-content"
-        alignSelf="flex-end"
-      >
-        <Flex overflowX="scroll" borderRadius="6">
-          {sorteioCorrenteState.numerosChamados.map((numero: string) => {
-            return <NumeroChamadoItemList key={numero}>{numero}</NumeroChamadoItemList>;
-          })}
-        </Flex>
-      </Columns.Column>
-    </Columns>
+        <Show above="tablet">
+          <Columns.Column>
+            <NumerosChamadosGrid>
+              {[...sorteioCorrenteState.numerosChamados]
+                .sort(compareLikeNumber)
+                .map((numero: string) => {
+                  return (
+                    <Tag
+                      key={numero}
+                      palette={ultimoChamado === numero ? 'warning' : 'default'}
+                      size="large"
+                    >
+                      {numero}
+                    </Tag>
+                  );
+                })}
+            </NumerosChamadosGrid>
+          </Columns.Column>
+        </Show>
+        <Columns.Column
+          spread={12}
+          padding="major-4"
+          backgroundColor="danger"
+          height="min-content"
+          alignSelf="flex-end"
+        >
+          <Flex overflowX="scroll" borderRadius="6">
+            {sorteioCorrenteState.numerosChamados.map((numero: string) => {
+              return <NumeroChamadoItemList key={numero}>{numero}</NumeroChamadoItemList>;
+            })}
+          </Flex>
+        </Columns.Column>
+      </Columns>
+    </>
   );
 }
 

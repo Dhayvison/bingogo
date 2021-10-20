@@ -1,6 +1,5 @@
 import React from 'react';
 import Div100vh from 'react-div-100vh';
-import { Box } from 'bumbag';
 import DisplayNumero from './components/display-numero/DisplayNumero';
 import MenuSorteios from './components/menu-sorteios/MenuSorteios';
 
@@ -8,7 +7,7 @@ function App() {
   return (
     <Div100vh>
       <MenuSorteios />
-      {/* <DisplayNumero /> */}
+      <DisplayNumero />
     </Div100vh>
   );
 }
