@@ -10,6 +10,7 @@ import {
   SorteioListItem,
   DisplayTituloSorteioCorrente,
 } from './MenuSorteios.style';
+import { SwitchColorMode } from '../SwitchColorMode';
 
 function MenuSorteios(store: any) {
   const { sorteiosState, sorteioCorrenteState, dispatch } = store;
@@ -29,6 +30,7 @@ function MenuSorteios(store: any) {
       <DisplayTituloSorteioCorrente>{sorteioCorrenteState.titulo}</DisplayTituloSorteioCorrente>
 
       <DrawerStyled fade slide>
+        <SwitchColorMode />
         <Heading>Sorteios</Heading>
 
         <SorteioList>

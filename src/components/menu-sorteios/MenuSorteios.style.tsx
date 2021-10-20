@@ -18,6 +18,7 @@ export const DisplayTituloSorteioCorrente = applyTheme(Box, {
       backgroundColor: 'danger800',
       padding: 'major-2',
       fontWeight: 'bolder',
+      color: 'primaryTint',
     },
   },
 });
