@@ -1,10 +1,4 @@
 {
-  "short_name": "BingoGO!",
-  "name": "Bingo Go! - Number Picker",
-  "start_url": "/",
-  "display": "standalone",
-  "theme_color": "#da1717",
-  "background_color": "#27303f",
   "icons": [
     {
       "src": "windows11/SmallTile.scale-100.png",
